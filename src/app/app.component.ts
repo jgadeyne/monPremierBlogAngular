@@ -5,6 +5,27 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'mon-premier-blog';
+  title = 'Posts';
+
+  PostListComponent = [
+    {
+      title: 'Mon premier post',
+      content: 'Contenu du premier post'
+    },
+    {
+      title: 'Mon deuxième post',
+      content: 'Contenu du deuxième post'
+    },
+    {
+      title: 'Et encore un post',
+      content: 'Bonus : troisieme post'
+    }
+  ];
+
 }
+
+
+
+

@@ -1,0 +1,14 @@
+
+<ul class="list-group">
+	<app-postlistitem *ngFor="let postitem of lesposts; let i = index"
+			                  [postTitle]="postitem.title"
+							  [postContent]="postitem.content"
+							  [postIndex]="i"></app-postlistitem>
+</ul>
+
+
+<button class="btn btn-primary"
+		(click)="onSave()">Enregistrer les posts</button>
+		
+<button class="btn btn-primary"
+        (click)="onFetch()">Récupérer les posts</button>

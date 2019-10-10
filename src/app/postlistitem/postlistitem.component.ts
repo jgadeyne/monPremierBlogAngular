@@ -1,20 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-postlistitem',
+  templateUrl: './postlistitem.component.html',
+  styleUrls: ['./postlistitem.component.scss']
 })
-export class PostComponent implements OnInit {
+export class PostListItemComponent implements OnInit {
 
  @Input() postTitle: string;
  @Input() postContent: string;
+ @Input() postIndex: number;
 
   postLoveIts: number = 0;
   postCreated_at: Date = new Date();
 
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,10 @@ export class PostComponent implements OnInit {
 
   getContent() {
     return this.postContent;
+  }
+
+  getIndex() {
+    return this.postIndex;
   }
 
   getLoveIts() {
@@ -41,6 +47,10 @@ export class PostComponent implements OnInit {
 
   onDontLoveIt(){
     this.postLoveIts--;
+  }
+
+  onDelete(){
+    this.postsService.deletePost(this.postIndex);
   }
 
 }
